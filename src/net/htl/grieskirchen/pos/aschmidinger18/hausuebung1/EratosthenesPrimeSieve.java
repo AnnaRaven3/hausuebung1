@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class EratosthenesPrimeSieve implements PrimeSieve{
 
-    int grenze;
+    static boolean[] primes = null;
     
     /**
      * @param args the command line arguments
@@ -25,20 +25,35 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         int auswahl = Integer.parseInt(scanner.nextLine());
         
         EratosthenesPrimeSieve ep = new EratosthenesPrimeSieve(auswahl);
+        
     }
 
     public EratosthenesPrimeSieve(int grenze) {
-        this.grenze = grenze;
+        primes = new boolean[grenze];
     }
 
     @Override
     public boolean isPrime(int p) {
-        
+        int factors = 0;
+        int j = 1;
+
+        while(j <= p)
+        {
+            if(p % j == 0)
+            {
+                factors++;
+            }
+            j++;
+        }
+        return (factors == 2);
     }
 
     @Override
     public void printPrimes() {
-        
+        for (int i = 0; i < primes.length; i++) {
+            primes[i] = true;
+        }
+       
     }
     
     
