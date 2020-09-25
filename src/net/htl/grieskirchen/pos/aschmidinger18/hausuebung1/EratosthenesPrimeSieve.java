@@ -25,7 +25,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         int auswahl = Integer.parseInt(scanner.nextLine());
         
         EratosthenesPrimeSieve ep = new EratosthenesPrimeSieve(auswahl);
-        
+        ep.printPrimes();
     }
 
     public EratosthenesPrimeSieve(int grenze) {
@@ -57,6 +57,12 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         for (int i = 0; i < primes.length; i++) {
             if(!isPrime(i)){
                 primes[i] = false;
+            }
+        }
+        
+        for (int i = 0; i < primes.length; i++) {
+            if(primes[i] == true){
+                System.out.println(i + " ");
             }
         }
     }
